@@ -7,6 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ind.sha.storypoints.R;
 import com.ind.sha.storypoints.base.BaseActivity;
@@ -23,6 +24,7 @@ import java.util.Arrays;
 public class HomeFragment extends BaseFragment {
 
     public static String TAG = HomeFragment.class.getSimpleName();
+    private TextView mStoryPointTV;
 
     public static HomeFragment newInstance() {
 
@@ -43,12 +45,13 @@ public class HomeFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mStoryPointTV = (TextView) view.findViewById(R.id.tv_story_point);
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.main_recycler);
 
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-        HomeRecyclerAdapter recyclerAdapter = new HomeRecyclerAdapter((BaseActivity)getActivity(), prepareData());
+        HomeRecyclerAdapter recyclerAdapter = new HomeRecyclerAdapter((BaseActivity)getActivity(), this, prepareData());
         recyclerView.setAdapter(recyclerAdapter);
 
     }
@@ -70,5 +73,15 @@ public class HomeFragment extends BaseFragment {
         }
 
         return storyPointsAL;
+    }
+
+    public void showStoryPointView(StoryPointsModel storyPointsModel)
+    {
+        TextView storyPointTV = (TextView)view.findViewById(R.id.tv_story_point);
+        storyPointTV.setText(mStoryPointModel.getPoints());
+        storyPointTV.setBackgroundColor(mStoryPointModel.getColorRes());
+
+        storyPointTV.setOnClickListener(this);
+        view.setOnClickListener(this);
     }
 }

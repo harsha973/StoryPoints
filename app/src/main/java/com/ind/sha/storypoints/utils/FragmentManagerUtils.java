@@ -174,6 +174,10 @@ public class FragmentManagerUtils {
 			case Animation.FADE_IN:
 				fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 				break;
+
+			case Animation.ZOOM:
+				fragmentTransaction.setCustomAnimations(R.anim.zoom_enter, R.anim.no_animation, R.anim.no_animation, R.anim.zoom_exit);
+				break;
 		}
 
 		if (replace) {
@@ -192,7 +196,8 @@ public class FragmentManagerUtils {
 	/*
 	 * Inner classes, interfaces, enums
 	 */
-	@IntDef( {Animation.SLIDE_IN_RIGHT, Animation.FADE_IN, Animation.NONE, Animation.SLIDE_IN_BOTTOM} )
+	@IntDef( {Animation.SLIDE_IN_RIGHT, Animation.FADE_IN, Animation.NONE, Animation.SLIDE_IN_BOTTOM
+			, Animation.ZOOM} )
 	@Retention(RetentionPolicy.SOURCE)
 	public @interface Animation {
 
@@ -200,5 +205,6 @@ public class FragmentManagerUtils {
 		int FADE_IN = 1;
 		int SLIDE_IN_RIGHT = 2;
 		int SLIDE_IN_BOTTOM = 3;
+		int ZOOM = 4;
 	}
 }

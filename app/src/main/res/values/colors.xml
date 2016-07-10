@@ -4,6 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="black_transp">#B3000000</color>
+    <color name="grey_dark">#3F3F3F</color>
+    <color name="grey_medium">#808080</color>
+    <color name="grey_light">#C9C9C9</color>
+    <color name="grey_lightest">#F8F8F8</color>
+
     //  Story points color
     <color name="bright_pink">#FF007F</color>
     <color name="red">#FF0000</color>

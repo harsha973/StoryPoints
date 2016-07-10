@@ -10,7 +10,10 @@ import android.view.ViewGroup;
  */
 public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-    public BaseRecyclerViewHolder(Context context, ViewGroup parent, int layoutResID) {
+    protected BaseActivity mContext;
+
+    public BaseRecyclerViewHolder(BaseActivity context, ViewGroup parent, int layoutResID) {
         super(LayoutInflater.from(context).inflate(layoutResID, parent, false));
+        mContext = context;
     }
 }
