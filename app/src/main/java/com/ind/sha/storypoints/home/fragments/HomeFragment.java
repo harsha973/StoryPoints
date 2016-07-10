@@ -75,13 +75,13 @@ public class HomeFragment extends BaseFragment {
         return storyPointsAL;
     }
 
-    public void showStoryPointView(StoryPointsModel storyPointsModel)
-    {
-        TextView storyPointTV = (TextView)view.findViewById(R.id.tv_story_point);
-        storyPointTV.setText(mStoryPointModel.getPoints());
-        storyPointTV.setBackgroundColor(mStoryPointModel.getColorRes());
-
-        storyPointTV.setOnClickListener(this);
-        view.setOnClickListener(this);
-    }
+//    public void showStoryPointView(StoryPointsModel storyPointsModel)
+//    {
+//        TextView storyPointTV = (TextView)view.findViewById(R.id.tv_story_point);
+//        storyPointTV.setText(mStoryPointModel.getPoints());
+//        storyPointTV.setBackgroundColor(mStoryPointModel.getColorRes());
+//
+//        storyPointTV.setOnClickListener(this);
+//        view.setOnClickListener(this);
+//    }
 }
