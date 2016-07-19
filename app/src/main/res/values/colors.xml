@@ -11,18 +11,50 @@
     <color name="grey_lightest">#F8F8F8</color>
 
     //  Story points color
-    <color name="bright_pink">#FF007F</color>
-    <color name="red">#FF0000</color>
-    <color name="orange">#FF7F00</color>
-    <color name="yellow">#FFFF00</color>
-    <color name="chartreuse">#7FFF00</color>
-    <color name="green">#00FF00</color>
-    <color name="spring_green">#00FF7F</color>
-    <color name="cyan">#00FFFF</color>
-    <color name="azure">#007FFF</color>
-    <color name="blue">#0000FF</color>
-    <color name="violet">#7F00FF</color>
-    <color name="magenta">#FF00FF</color>
+    <!--<color name="bright_pink">#FF007F</color>-->
+    <!--<color name="red">#FF0000</color>-->
+    <!--<color name="orange">#FF7F00</color>-->
+    <!--<color name="yellow">#FFFF00</color>-->
+    <!--<color name="chartreuse">#7FFF00</color>-->
+    <!--<color name="green">#00FF00</color>-->
+    <!--<color name="spring_green">#00FF7F</color>-->
+    <!--<color name="cyan">#00FFFF</color>-->
+    <!--<color name="azure">#007FFF</color>-->
+    <!--<color name="blue">#0000FF</color>-->
+    <!--<color name="violet">#7F00FF</color>-->
+    <!--<color name="magenta">#FF00FF</color>-->
+    <!--<color name="brown">#795548</color>-->
+    <!--<color name="grey">#9E9E9E</color>-->
+    <!--//  14 colors, Count keep in sync with strings array "storypoints"-->
+    <!--<array name="storypoints_tile_bg">-->
+        <!--<item>@color/bright_pink</item>-->
+        <!--<item>@color/red</item>-->
+        <!--<item>@color/orange</item>-->
+        <!--<item>@color/yellow</item>-->
+        <!--<item>@color/chartreuse</item>-->
+        <!--<item>@color/green</item>-->
+        <!--<item>@color/spring_green</item>-->
+        <!--<item>@color/cyan</item>-->
+        <!--<item>@color/azure</item>-->
+        <!--<item>@color/blue</item>-->
+        <!--<item>@color/violet</item>-->
+        <!--<item>@color/magenta</item>-->
+        <!--<item>@color/brown</item>-->
+        <!--<item>@color/grey</item>-->
+    <!--</array>-->
+
+    <color name="bright_pink">#F06292</color>
+    <color name="red">#EF5350</color>
+    <color name="orange">#EF6C00</color>
+    <color name="lime">#827717</color>
+    <color name="chartreuse">#689F38</color>
+    <color name="green">#388E3C</color>
+    <color name="deep_purple">#9575CD</color>
+    <color name="cyan">#0097A7</color>
+    <color name="indigo">#7986CB</color>
+    <color name="teal">#009688</color>
+    <color name="violet">#BA68C8</color>
+    <color name="blue_grey">#78909C</color>
     <color name="brown">#795548</color>
     <color name="grey">#9E9E9E</color>
     //  14 colors, Count keep in sync with strings array "storypoints"
@@ -30,16 +62,16 @@
         <item>@color/bright_pink</item>
         <item>@color/red</item>
         <item>@color/orange</item>
-        <item>@color/yellow</item>
+        <item>@color/lime</item>
         <item>@color/chartreuse</item>
         <item>@color/green</item>
-        <item>@color/spring_green</item>
-        <item>@color/cyan</item>
-        <item>@color/azure</item>
-        <item>@color/blue</item>
         <item>@color/violet</item>
-        <item>@color/magenta</item>
-        <item>@color/brown</item>
+        <item>@color/deep_purple</item>
+        <item>@color/indigo</item>
         <item>@color/grey</item>
+        <item>@color/blue_grey</item>
+        <item>@color/cyan</item>
+        <item>@color/teal</item>
+        <item>@color/brown</item>
     </array>
 </resources>

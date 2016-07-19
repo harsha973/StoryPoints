@@ -27,6 +27,7 @@ public class HomeRecyclerAdapter extends BaseRecyclerAdapter {
         mStoryPointsAL = storyPointsAL;
         mHomeFragment = homeFragment;
     }
+
     @Override
     public BaseRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new HomeTileViewHolder(mContext, mHomeFragment, parent, R.layout.recycler_item_storypoints);

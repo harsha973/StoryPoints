@@ -2,6 +2,9 @@
     <string name="app_name">StoryPoints</string>
     <string name="action_settings">Settings</string>
 
+    //  home
+    <string name="transaction_name_home">home</string>
+
     <string-array name="storypoints">
         <item>0</item>
         <item>&#189;</item>
@@ -15,7 +18,7 @@
         <item>40</item>
         <item>100</item>
         <item>"?"</item>
-        <item>"∞"</item>
         <item>"☕"</item>
+        <item>"∞"</item>
     </string-array>
 </resources>

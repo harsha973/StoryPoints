@@ -4,14 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_transp"
     android:clickable="true">
-    <!--android:background="@color/black_transp"-->
 
     <TextView
         app:layout_widthPercent="65%"
         app:layout_aspectRatio="100%"
         android:id="@+id/tv_story_point"
         android:gravity="center"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        style="@style/AppTheme.Widget.TextView.Bold.XXLarge"
+        android:textColor="@android:color/white"
+        android:transitionName="@string/transaction_name_home" />
 
 </android.support.percent.PercentRelativeLayout>

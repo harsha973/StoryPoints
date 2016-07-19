@@ -2,6 +2,7 @@ package com.ind.sha.storypoints.home.fragments;
 
 import android.support.annotation.Nullable;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -48,11 +49,28 @@ public class HomeFragment extends BaseFragment {
         mStoryPointTV = (TextView) view.findViewById(R.id.tv_story_point);
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.main_recycler);
 
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+//        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        GridLayoutManager staggeredGridLayoutManager = new GridLayoutManager(getActivity(), 12);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         HomeRecyclerAdapter recyclerAdapter = new HomeRecyclerAdapter((BaseActivity)getActivity(), this, prepareData());
         recyclerView.setAdapter(recyclerAdapter);
+
+        staggeredGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                int mod = position % 6;
+
+                if(position < 8)
+                    return 3;
+                else if(position < 11)
+                    return 4;
+                else if(position < 13)
+                    return 6;
+                else
+                    return 12;
+            }
+        });
 
     }
 

@@ -1,10 +1,13 @@
 package com.ind.sha.storypoints.utils;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.IntDef;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.transition.TransitionInflater;
+import android.view.View;
 
 import com.ind.sha.storypoints.R;
 import com.ind.sha.storypoints.base.BaseActivity;
@@ -117,6 +120,25 @@ public class FragmentManagerUtils {
 	}
 
 	/**
+	 * Replaces the current {@link Fragment} that is in the container view with id "fragment_container",
+	 * with the new {@link Fragment} received, and adds it to the back stack.
+	 *
+	 * @param activity
+	 * 		{@link Activity} that will contain the {@link Fragment}.
+	 * @param fragment
+	 * 		{@link Fragment} to be added, that will replace the current one.
+	 * @param fragmentTag
+	 * 		Tag of the {@link Fragment} to add, used to identify it.
+	 */
+	public static void replaceFragmentAndAddToBackStack(BaseActivity activity, Fragment fragment,
+														String fragmentTag, @Animation int animation,
+														View sharedView,
+														String sharedName) {
+		showFragment(activity, R.id.fragment_container, fragment, fragmentTag, true, true, animation,
+				sharedView, sharedName);
+	}
+
+	/**
 	 * Replaces the current {@link Fragment} that is in the container view received (represented by its id),
 	 * with the new {@link Fragment} received.
 	 *
@@ -152,6 +174,34 @@ public class FragmentManagerUtils {
 	 * 		{@code true} if the current {@link Fragment} should be replaced, or {@code false} if it shouldn't.
 	 */
 	private static void showFragment(BaseActivity activity, int containerViewId, Fragment fragment, String fragmentTag, boolean addToBackStack, boolean replace, @Animation int animation) {
+		showFragment(activity, containerViewId, fragment, fragmentTag, addToBackStack, replace,
+				animation, null, null);
+	}
+
+	/**
+	 * Shows the received {@link Fragment} in the container view received (represented by its id),
+	 * adding it to the back stack or not, and replacing the current one or not (depending on the
+	 * received parameters "addToBackStack" and "replace").
+	 *
+	 * @param activity
+	 * 		{@link Activity} that will contain the {@link Fragment}.
+	 * @param containerViewId
+	 * 		Id of the container view where the new fragment will replace the current one.
+	 * @param fragment
+	 * 		{@link Fragment} to be added, that will replace the current one.
+	 * @param fragmentTag
+	 * 		Tag of the {@link Fragment} to add, used to identify it.
+	 * @param addToBackStack
+	 * 		{@code true} if the {@link Fragment} should be added to the back stack, or {@code false} if it shouldn't.
+	 * @param replace
+	 * 		{@code true} if the current {@link Fragment} should be replaced, or {@code false} if it shouldn't.
+	 */
+	private static void showFragment(BaseActivity activity, int containerViewId,
+									 Fragment fragment, String fragmentTag, boolean addToBackStack,
+									 boolean replace, @Animation int animation,
+									 View sharedView,
+									 String sharedName
+									 ) {
 		FragmentManager fragmentManager = activity.getSupportFragmentManager();
 
 		// Make sure the activity is not paused or destroyed before trying to show the fragment,
@@ -188,6 +238,20 @@ public class FragmentManagerUtils {
 
 		if (addToBackStack) {
 			fragmentTransaction.addToBackStack(fragmentTag);
+		}
+
+		if(sharedView != null &&
+				sharedName != null)
+		{
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+				fragment.setSharedElementEnterTransition(TransitionInflater.from(activity).inflateTransition(R.transition.change_text_transformation));
+				fragment.setEnterTransition(TransitionInflater.from(activity).inflateTransition(android.R.transition.explode));
+
+				//
+				fragmentTransaction.addSharedElement(sharedView, sharedName);
+			}
+
 		}
 
 		fragmentTransaction.commit();

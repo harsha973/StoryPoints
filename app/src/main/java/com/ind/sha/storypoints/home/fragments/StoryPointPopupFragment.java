@@ -1,5 +1,6 @@
 package com.ind.sha.storypoints.home.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -21,10 +22,11 @@ public class StoryPointPopupFragment extends BaseFragment implements View.OnClic
 
     public static String TAG = StoryPointPopupFragment.class.getSimpleName();
 
-    public static StoryPointPopupFragment newInstance(StoryPointsModel storyPointModel) {
+    public static StoryPointPopupFragment newInstance(StoryPointsModel storyPointModel, String transitionName) {
 
         Bundle args = new Bundle();
         args.putParcelable(Constants.KEY_STORY_POINT_MODEL, storyPointModel);
+        args.putString(Constants.KEY_TRANSITION_NAME, transitionName);
         StoryPointPopupFragment fragment = new StoryPointPopupFragment();
         fragment.setArguments(args);
         return fragment;
@@ -41,12 +43,22 @@ public class StoryPointPopupFragment extends BaseFragment implements View.OnClic
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_story_point_popup, container, false);
+
+        View view  =  inflater.inflate(R.layout.fragment_story_point_popup, container, false);
+
+        String transitionName = getArguments().getString(Constants.KEY_TRANSITION_NAME);
+        TextView storyPointTV = (TextView)view.findViewById(R.id.tv_story_point);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            storyPointTV.setTransitionName(transitionName);
+        }
+        return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         TextView storyPointTV = (TextView)view.findViewById(R.id.tv_story_point);
         storyPointTV.setText(mStoryPointModel.getPoints());
