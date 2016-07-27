@@ -36,7 +36,6 @@ public class HomeTileViewHolder extends BaseRecyclerViewHolder {
         {
 //            mHomeFragment.setSharedElementReturnTransition(TransitionInflater.from(mContext).inflateTransition(R.transition. change_text_transformation));
 //            mHomeFragment.setExitTransition(TransitionInflater.from(mContext).inflateTransition(android.R.transition.explode));
-
             itemView.setTransitionName(transitionName);
         }
     }
@@ -58,10 +57,10 @@ public class HomeTileViewHolder extends BaseRecyclerViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManagerUtils.replaceFragmentAndAddToBackStack(mContext,
+                FragmentManagerUtils.addFragmentAndAddToBackStack(mContext,
                         StoryPointPopupFragment.newInstance(item, transitionName),
                         StoryPointPopupFragment.TAG,
-                        FragmentManagerUtils.Animation.NONE);
+                        FragmentManagerUtils.Animation.FADE_IN);
 //                        itemView,
 //                        transitionName);
             }

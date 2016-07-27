@@ -50,5 +50,6 @@
     <dimen name="preview_image_size">100dp</dimen>
     <dimen name="preview_image_size_tiny">25dp</dimen>
     <dimen name="status_image_size">25dp</dimen>
+    <dimen name="logo_image_size">100dp</dimen>
 
 </resources>

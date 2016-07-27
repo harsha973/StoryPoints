@@ -222,7 +222,7 @@ public class FragmentManagerUtils {
 				fragmentTransaction.setCustomAnimations(R.anim.slide_in_top, R.anim.no_animation, R.anim.no_animation, R.anim.slide_out_bottom);
 				break;
 			case Animation.FADE_IN:
-				fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+				fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, R.anim.no_animation, android.R.anim.fade_out);
 				break;
 
 			case Animation.ZOOM:

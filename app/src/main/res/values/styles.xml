@@ -51,6 +51,9 @@
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
+    <style name="HintText">
+        <item name="android:textSize">0sp</item>
+    </style>
     <!--BUTTON STYLE-->
     <!--<style name="AppTheme.Widget.Button.Default" parent="@style/Widget.AppCompat.Button">-->
         <!--<item name="android:background">@drawable/selectable_btn_accent</item>-->

@@ -50,7 +50,7 @@ public class HomeFragment extends BaseFragment {
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.main_recycler);
 
 //        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
-        GridLayoutManager staggeredGridLayoutManager = new GridLayoutManager(getActivity(), 12);
+        GridLayoutManager staggeredGridLayoutManager = new GridLayoutManager(getActivity(), 6);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         HomeRecyclerAdapter recyclerAdapter = new HomeRecyclerAdapter((BaseActivity)getActivity(), this, prepareData());
@@ -61,14 +61,12 @@ public class HomeFragment extends BaseFragment {
             public int getSpanSize(int position) {
                 int mod = position % 6;
 
-                if(position < 8)
+                if(position < 12)
+                    return 2;
+                else if(position < 14)
                     return 3;
-                else if(position < 11)
-                    return 4;
-                else if(position < 13)
-                    return 6;
                 else
-                    return 12;
+                    return 6;
             }
         });
 
